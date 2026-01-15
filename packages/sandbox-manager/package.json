@@ -1,0 +1,42 @@
+{
+	"scripts": {
+		"build": "zile",
+		"changeset:publish": "zile publish:prepare && changeset publish && zile publish:post",
+		"changeset:version": "changeset version",
+		"check": "biome check --fix --unsafe",
+		"check:types": "tsc",
+		"dev": "zile dev",
+		"test": "vitest"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "latest",
+		"@changesets/cli": "latest",
+		"@types/node": "latest",
+		"typescript": "latest",
+		"vitest": "latest",
+		"zile": "latest"
+	},
+	"[!start-pkg]": "",
+	"name": "@bg-agent/sandbox-manager",
+	"version": "0.0.1",
+	"type": "module",
+	"main": "./dist/index.js",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"src": "./src/index.ts",
+			"import": "./dist/index.js",
+			"default": "./dist/index.js"
+		}
+	},
+	"bin": {
+		"sandbox-manager": "./dist/cli.js",
+		"sandbox-manager.src": "./src/cli.ts"
+	},
+	"dependencies": {
+		"@opencode-ai/sdk": "^1.1.23"
+	},
+	"sideEffects": false
+}
